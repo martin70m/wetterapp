@@ -67,9 +67,11 @@ public class MySqlConnection {
 		Properties connectionProps = new Properties();
 		connectionProps.put("user", MySqlConnection.userName);
 		connectionProps.put("password", MySqlConnection.password);
-
-		conn = DriverManager.getConnection("jdbc:" + MySqlConnection.dbms + "://" + MySqlConnection.serverName + ":"
-				+ MySqlConnection.portNumber + "/" + MySqlConnection.dataBase, connectionProps);
+		
+		String connection = "jdbc:" + MySqlConnection.dbms + "://" + MySqlConnection.serverName + ":"
+				+ MySqlConnection.portNumber + "/" + MySqlConnection.dataBase + "?serverTimezone=Europe/Berlin&useSSL=false";
+		
+		conn = DriverManager.getConnection(connection, connectionProps);
 
 		System.out.println("Connected to database");
 		return conn;

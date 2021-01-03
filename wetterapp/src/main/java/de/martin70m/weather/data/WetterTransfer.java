@@ -30,7 +30,7 @@ public class WetterTransfer {
 	private static final String WETTERDATEN = "stundenwerte_TU_[ID]_akt.zip";
 	private static final String LOCAL_DIRECTORY = "/deployments/Wetterdaten";
 
-	private static final String AIR_TEMPERATURE_RECENT = "/pub/CDC/observations_germany/climate/hourly/air_temperature/recent/";
+	private static final String AIR_TEMPERATURE_RECENT = "/climate_environment/CDC/observations_germany/climate/hourly/air_temperature/recent/";
 	private static final String FTP_CDC_DWD_DE = "ftp-cdc.dwd.de";
 
 	public static void start(boolean withDownload) {
