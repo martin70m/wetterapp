@@ -1,19 +1,19 @@
-package de.martin70m.common.io;
+package martin70m.common.io;
 
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
 public class FTPDownloader {
 
-	FTPClient ftp = null;
+	private FTPClient ftp;
 
     public FTPDownloader(String host, String user, String pwd) throws Exception {
         ftp = new FTPClient();
@@ -67,8 +67,8 @@ public class FTPDownloader {
             OutputStream output;
          
             File outfile=new File(localDirectory + "/" + file.getName());
-            outfile.createNewFile();
-             
+            boolean newFile = outfile.createNewFile();
+
             output = new FileOutputStream(outfile);
             //get the file from the remote system
             ftp.retrieveFile(remoteDirectory + file.getName(), output);

@@ -1,4 +1,4 @@
-package de.martin70m.common.sql;
+package martin70m.common.sql;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -15,7 +15,7 @@ public class MySqlConnection {
 	private static final String portNumber = "3306";
 	private static final String dataBase = "db1414x685817";
 	private static final String dbms = "mysql";
-	private static final String localPropertiesFile = "/deployments/db.properties";
+	private static final String localPropertiesFile = "/Users/martin/deployments/db.properties";
 	private static String password;
 	private static String userName;
 
@@ -63,7 +63,7 @@ public class MySqlConnection {
 
 	public Connection getConnection() throws SQLException {
 
-		Connection conn = null;
+		Connection conn;
 		Properties connectionProps = new Properties();
 		connectionProps.put("user", MySqlConnection.userName);
 		connectionProps.put("password", MySqlConnection.password);

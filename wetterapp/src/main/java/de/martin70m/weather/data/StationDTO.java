@@ -1,4 +1,4 @@
-package de.martin70m.weather.data;
+package martin70m.weather.data;
 
 public class StationDTO {
 	private int ID;

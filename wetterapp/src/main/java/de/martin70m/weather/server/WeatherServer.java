@@ -1,6 +1,6 @@
-package de.martin70m.weather.server;
+package martin70m.weather.server;
 
-import de.martin70m.weather.data.WetterTransfer;
+import martin70m.weather.data.WetterTransfer;
 
 public class WeatherServer {
 

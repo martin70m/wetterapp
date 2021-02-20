@@ -1,4 +1,4 @@
-package de.martin70m.common.io;
+package martin70m.common.io;
 
 import java.io.File;
 
@@ -7,11 +7,12 @@ public class FileFinder {
 		
         File file = new File(pathDir);
         if(file.isDirectory()) {
-        	File[] fieles = file.listFiles();
-        	for(File f : fieles) {
-        		if(f.getName().contains(pattern))
-        			return f.getName();
-        	}
+        	File[] files = file.listFiles();
+        	if(files != null)
+				for(File f : files)
+					if(f.getName().contains(pattern))
+						return f.getName();
+
         }
 		return "";
 	}

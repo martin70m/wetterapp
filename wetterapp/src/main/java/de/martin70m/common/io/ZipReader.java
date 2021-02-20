@@ -1,4 +1,4 @@
-package de.martin70m.common.io;
+package martin70m.common.io;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -23,9 +23,9 @@ public class ZipReader {
 		Path outDir = Paths.get(outpath);
 		try (
 
-				// we open the zip file using a java 7 try with resources block so
-				// that we don't need a finally.
-				ZipInputStream stream = new ZipInputStream(new FileInputStream(filename));) {
+			// we open the zip file using a java 7 try with resources block so
+			// that we don't need a finally.
+			ZipInputStream stream = new ZipInputStream(new FileInputStream(filename))) {
 
 			Files.walkFileTree(outDir, new SimpleFileVisitor<Path>() {
 				@Override

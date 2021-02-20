@@ -1,4 +1,4 @@
-package de.martin70m.weather.data;
+package martin70m.weather.data;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,16 +19,16 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import de.martin70m.common.io.FTPDownloader;
-import de.martin70m.common.io.FileFinder;
-import de.martin70m.common.io.ZipReader;
-import de.martin70m.common.sql.MySqlConnection;
+import martin70m.common.io.FTPDownloader;
+import martin70m.common.io.FileFinder;
+import martin70m.common.io.ZipReader;
+import martin70m.common.sql.MySqlConnection;
 
 public class WetterTransfer {
 
 	private static final String STATIONEN = "TU_Stundenwerte_Beschreibung_Stationen.txt";
 	private static final String WETTERDATEN = "stundenwerte_TU_[ID]_akt.zip";
-	private static final String LOCAL_DIRECTORY = "/deployments/Wetterdaten";
+	private static final String LOCAL_DIRECTORY = "/Users/martin/deployments/Wetterdaten";
 
 	private static final String AIR_TEMPERATURE_RECENT = "/climate_environment/CDC/observations_germany/climate/hourly/air_temperature/recent/";
 	private static final String FTP_CDC_DWD_DE = "ftp-cdc.dwd.de";
@@ -67,9 +67,8 @@ public class WetterTransfer {
 					int stationID = updateStation(conn, station);
 
 					String stationDirName = "0000" + stationID;
-					while (stationDirName.length() > 5) {
+					while (stationDirName.length() > 5)
 						stationDirName = stationDirName.substring(1, stationDirName.length());
-					}
 					String filename = WETTERDATEN.replace("[ID]", stationDirName);
 					String unzippedDir = path + "/" + stationDirName;
 					// create Directory for unzipping Files, if not exists
@@ -90,7 +89,8 @@ public class WetterTransfer {
 					if (filecounter > 0) {
 						String filename1 = FileFinder.find("produkt_tu_stunde", unzippedDir);
 						File infile = new File(unzippedDir + "/" + filename1);
-						List<String> temperatures = null;
+						List<String> temperatures;
+						temperatures = null;
 						try {
 							int alteStationsID = 0;
 							long maxDatum = 20170101;
@@ -98,10 +98,10 @@ public class WetterTransfer {
 							temperatures = readDataFromFile(infile);
 
 							for (String temperature : temperatures) {
-								
+
 								MesswertDTO messwert = new MesswertDTO();
 								List<String> data1 = Arrays.asList(temperature.split(";"));
-								messwert.setStationID(new Integer(data1.get(0).trim()).intValue());
+								messwert.setStationID(Integer.parseInt(data1.get(0).trim()));
 								if (alteStationsID != messwert.getStationID()) {
 									conn.commit();
 
