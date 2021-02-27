@@ -28,7 +28,7 @@ public class WetterTransfer {
 
 	private static final String STATIONEN = "TU_Stundenwerte_Beschreibung_Stationen.txt";
 	private static final String WETTERDATEN = "stundenwerte_TU_[ID]_akt.zip";
-	private static final String LOCAL_DIRECTORY = "/Users/martin/deployments/Wetterdaten";
+	private static final String LOCAL_DIRECTORY = "/deployments/Wetterdaten";
 
 	private static final String AIR_TEMPERATURE_RECENT = "/climate_environment/CDC/observations_germany/climate/hourly/air_temperature/recent/";
 	private static final String FTP_CDC_DWD_DE = "ftp-cdc.dwd.de";
@@ -37,7 +37,7 @@ public class WetterTransfer {
 
 		int numberFiles = 0; 
 		long seconds = 0;
-		String path = LOCAL_DIRECTORY;
+		String path = System.getProperty("user.home") + LOCAL_DIRECTORY;
 
 		//printOutVisitors();
 

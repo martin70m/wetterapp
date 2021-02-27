@@ -15,7 +15,8 @@ public class MySqlConnection {
 	private static final String portNumber = "3306";
 	private static final String dataBase = "db1414x685817";
 	private static final String dbms = "mysql";
-	private static final String localPropertiesFile = "/Users/martin/deployments/db.properties";
+	private static final String localPropertiesFile = "/deployments/db.properties";
+	private static final String localPropertiesFileUnix = "/deployments/db.properties";
 	private static String password;
 	private static String userName;
 
@@ -25,7 +26,8 @@ public class MySqlConnection {
 			BufferedInputStream stream;
 			try {
 				// try on Windows-Systems
-				stream = new BufferedInputStream(new FileInputStream(localPropertiesFile));
+				String path = System.getProperty("user.home") + localPropertiesFile;
+				stream = new BufferedInputStream(new FileInputStream(path));
 				try {
 					properties.load(stream);
 					stream.close();
@@ -37,7 +39,8 @@ public class MySqlConnection {
 			} catch (FileNotFoundException e) {
 				// if failed try on Unix-Systems
 				try {
-					stream = new BufferedInputStream(new FileInputStream(localPropertiesFile));
+					String path = System.getProperty("user.home") + localPropertiesFileUnix;
+					stream = new BufferedInputStream(new FileInputStream(localPropertiesFileUnix));
 					try {
 						properties.load(stream);
 						stream.close();
