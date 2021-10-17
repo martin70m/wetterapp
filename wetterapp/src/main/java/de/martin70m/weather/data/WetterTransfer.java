@@ -90,7 +90,7 @@ public class WetterTransfer {
 						String filename1 = FileFinder.find("produkt_tu_stunde", unzippedDir);
 						File infile = new File(unzippedDir + "/" + filename1);
 						List<String> temperatures;
-						temperatures = null;
+						//temperatures = null;
 						try {
 							int alteStationsID = 0;
 							long maxDatum = 20170101;
@@ -120,7 +120,7 @@ public class WetterTransfer {
 
 									}
 								}
-								long datetime = new Integer(data1.get(1).trim()).intValue();
+								long datetime = Integer.parseInt(data1.get(1).trim());
 								messwert.setDate(datetime / 100);
 								long time = datetime - messwert.getDate() * 100;
 								messwert.setHour((int) time);
@@ -181,10 +181,10 @@ public class WetterTransfer {
 		StationDTO stationData = new StationDTO();
 		String[] data = Arrays.asList(station.split("[ ]")).stream().filter(str -> !str.isEmpty())
 				.collect(Collectors.toList()).toArray(new String[0]);
-		stationData.setID(new Integer(data[0]).intValue());
-		stationData.setVonDatum(new Integer(data[1]).intValue());
-		stationData.setBisDatum(new Integer(data[2]).intValue());
-		stationData.setHeight(new Integer(data[3]).intValue());
+		stationData.setID(Integer.parseInt(data[0]));
+		stationData.setVonDatum(Integer.parseInt(data[1]));
+		stationData.setBisDatum(Integer.parseInt(data[2]));
+		stationData.setHeight(Integer.parseInt(data[3]));
 		stationData.setLatitude(data[4]);
 		stationData.setLongitude(data[5]);
 		stationData.setName(data[6]);
@@ -293,9 +293,9 @@ public class WetterTransfer {
 	private static List<String> readDataFromFile(File infile) throws IOException {
 		List<String> allLines;
 		allLines = Files.readAllLines(infile.toPath(), StandardCharsets.ISO_8859_1);
-		List<String> badLines = new ArrayList<String>();
+		List<String> badLines = new ArrayList<>();
 
-		if (allLines != null && !allLines.isEmpty()) {
+		if (!allLines.isEmpty()) {
 			for (String line : allLines) {
 				if (line.startsWith("---") || line.toUpperCase().startsWith("STATION"))
 					badLines.add(line);
