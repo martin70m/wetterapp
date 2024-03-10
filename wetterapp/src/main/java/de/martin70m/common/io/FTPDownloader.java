@@ -1,4 +1,4 @@
-package martin70m.common.io;
+package de.martin70m.common.io;
 
 
 import org.apache.commons.net.ftp.FTP;

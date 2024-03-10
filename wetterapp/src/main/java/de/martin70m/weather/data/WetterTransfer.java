@@ -1,4 +1,4 @@
-package martin70m.weather.data;
+package de.martin70m.weather.data;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,10 +19,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import martin70m.common.io.FTPDownloader;
-import martin70m.common.io.FileFinder;
-import martin70m.common.io.ZipReader;
-import martin70m.common.sql.MySqlConnection;
+import de.martin70m.common.io.FTPDownloader;
+import de.martin70m.common.io.FileFinder;
+import de.martin70m.common.io.ZipReader;
+import de.martin70m.common.sql.MySqlConnection;
 
 public class WetterTransfer {
 

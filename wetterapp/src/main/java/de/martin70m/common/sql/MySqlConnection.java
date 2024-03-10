@@ -1,4 +1,4 @@
-package martin70m.common.sql;
+package de.martin70m.common.sql;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
