@@ -31,7 +31,7 @@ public class WetterTransfer {
 	private static final String LOCAL_DIRECTORY = "/deployments/Wetterdaten";
 
 	private static final String AIR_TEMPERATURE_RECENT = "/climate_environment/CDC/observations_germany/climate/hourly/air_temperature/recent/";
-	private static final String FTP_CDC_DWD_DE = "ftp-cdc.dwd.de";
+	private static final String FTP_CDC_DWD_DE = "opendata.dwd.de";
 
 	public static void start(boolean withDownload) {
 
