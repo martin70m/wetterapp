@@ -11,9 +11,9 @@ import java.util.Properties;
 
 public class MySqlConnection {
 
-	private static final String serverName = "mysql6.1blu.de";
+	private static final String serverName = "mysql.webhosting54.1blu.de";
 	private static final String portNumber = "3306";
-	private static final String dataBase = "db1414x685817";
+	private static final String dataBase = "db279928x2772157";
 	private static final String dbms = "mysql";
 	private static final String localPropertiesFile = "/deployments/db.properties";
 	private static final String localPropertiesFileUnix = "/deployments/db.properties";
